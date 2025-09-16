@@ -8,7 +8,7 @@
 
         public required string Description { get; set; }
 
-        public required string Price { get; set; }
+        public required int Price { get; set; }
 
         public required string PictureUrl { get; set; }
 
