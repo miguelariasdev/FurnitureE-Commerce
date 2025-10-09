@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import type { Product } from '../models/products';
+import type { Product } from '../models/product';
+import Catalog from '../../features/catalog/Catalog';
+import { Box, Button, Container, Typography } from '@mui/material';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,15 +27,13 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>FurniE-commerce</h1>
-      <ul>
-        {products.map(item => {
-          return <li key={item.name}>{item.name} - {item.price}</li>
-        })}
-      </ul>
-      <button onClick={addProduct}>Add Product</button>
-    </div>
+    <Container maxWidth='xl'>
+      <Box display='flex' justifyContent='center' gap={3} marginY={3}>
+        <Typography variant='h4'>FurniE-commerce</Typography>
+        <Button variant='contained'onClick={addProduct}>Add Product</Button>
+      </Box>
+      <Catalog products={products} />
+    </Container>
   )
 }
 
