@@ -36,8 +36,8 @@ export default function NavBar({darkMode, setDarkMode}: Props) {
 
     return (
         <AppBar position="fixed">
-            <Toolbar>
-                <Box>
+            <Toolbar sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center'}}>
+                <Box display={'Flex'} alignItems='center'>
                     <Typography component={NavLink} sx={navStyles} to='/' variant="h6">RE-STORE</Typography>
                     <IconButton onClick={() => setDarkMode(!darkMode)}>
                         {darkMode ? <DarkMode /> : <LightMode sx={{color: 'yellow'}}/>}
@@ -56,25 +56,26 @@ export default function NavBar({darkMode, setDarkMode}: Props) {
                     </ListItem>
                 ))}
             </List>
+            <Box display={'Flex'} alignItems='center'>
+                <IconButton size="large" sx={{color: 'inherit'}}>
+                    <Badge badgeContent='4' color="secondary">
+                        <ShoppingCart />
+                    </Badge>
+                </IconButton>
 
-            <IconButton size="large" sx={{color: 'inherit'}}>
-                <Badge badgeContent='4' color="secondary">
-                    <ShoppingCart />
-                </Badge>
-            </IconButton>
-
-            <List sx={{display: 'flex'}}>
-                {rightLinks.map(({title, path}) => (
-                    <ListItem
-                        component={NavLink}
-                        to={path}
-                        key={path}
-                        sx={navStyles}
-                    >
-                        {title.toUpperCase()}
-                    </ListItem>
-                ))}
-            </List>
+                <List sx={{display: 'flex'}}>
+                    {rightLinks.map(({title, path}) => (
+                        <ListItem
+                            component={NavLink}
+                            to={path}
+                            key={path}
+                            sx={navStyles}
+                        >
+                            {title.toUpperCase()}
+                        </ListItem>
+                    ))}
+                </List>
+            </Box>
             </Toolbar>
         </AppBar>
     )
