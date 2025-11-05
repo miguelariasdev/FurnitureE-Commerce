@@ -35,6 +35,7 @@ namespace API.Controllers
         public IActionResult GetServerError()
         {
             throw new Exception("This is a server error");
+
         }
     }
 }
