@@ -460,6 +460,7 @@ Temporary Items
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
+store.db
 
 # Dump file
 *.stackdump
@@ -487,3 +488,5 @@ $RECYCLE.BIN/
 *.jpg
 *.png
 *.db
+*.db-shm
+*.db-wal
